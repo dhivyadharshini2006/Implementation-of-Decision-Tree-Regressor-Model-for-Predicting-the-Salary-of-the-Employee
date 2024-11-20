@@ -8,15 +8,33 @@ To write a program to implement the Decision Tree Regressor Model for Predicting
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. Import the standard libraries.
-2. Upload the dataset and check for any null values using .isnull() function.
-3. Import LabelEncoder and encode the dataset.
-4. Import DecisionTreeRegressor from sklearn and apply the model on the dataset.
-5. Predict the values of arrays.
-6. Import metrics from sklearn and calculate the MSE and R2 of the model on the dataset.
-7. Predict the values of array.
-8. Apply to new unknown values.
+1. Import the required libraries: `pandas` for data manipulation and modules from `sklearn` for machine learning tasks.
 
+2. Load the dataset `Salary.csv` using `pd.read_csv()` and display its structure using `.head()` and `.info()` to examine the dataset's contents and data types.
+
+3. Check for missing values in the dataset using `.isnull().sum()` to ensure data completeness.
+
+4. Encode the categorical column `Position` into numerical values using `LabelEncoder` from `sklearn.preprocessing`. Use `.fit_transform()` to perform the encoding.
+
+5. Verify the updated dataset structure and preview the changes using `.head()`.
+
+6. Separate the features (`x`) and target variable (`y`). Select the columns `Position` and `Level` for `x`, and the column `Salary` for `y`.
+
+7. Split the dataset into training and testing subsets using `train_test_split()` with `test_size=0.2` to allocate 20% of the data for testing and `random_state=100` for reproducibility.
+
+8. Import the `DecisionTreeRegressor` from `sklearn.tree` and initialize the model.
+
+9. Train the `DecisionTreeRegressor` on the training data (`x_train`, `y_train`) using the `fit()` method.
+
+10. Predict the target values for the test data (`x_test`) using the trained model’s `predict()` method. Store the predictions in `y_pred`.
+
+11. Import metrics from `sklearn` to evaluate the model’s performance. Calculate the mean squared error (MSE) using `metrics.mean_squared_error(y_test, y_pred)`.
+
+12. Compute the coefficient of determination (\(R^2\) score) to assess the goodness of fit using `metrics.r2_score(y_test, y_pred)`.
+
+13. Test the model with new input data by providing a feature array (e.g., `[[5, 6]]`) to the model’s `predict()` method to predict the salary for that input. 
+
+14. Display the results, including MSE, \(R^2\) score, and predictions for the test data and new input.
 ## Program:
 ```Python
 /*
